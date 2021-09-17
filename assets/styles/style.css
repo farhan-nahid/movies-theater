@@ -34,8 +34,10 @@ nav {
 
 nav h3 {
   color: var(--white-color);
-  font-style: italic;
+  letter-spacing: 3px;
+  font-weight: 800;
 }
+
 
 .search {
   background-color: transparent;
@@ -92,13 +94,14 @@ main {
 
 .movie__info h3 {
   margin-top: 0;
+  font-weight: 800;
 }
 
 .movie__info span {
   background-color: var(--primary-color);
   padding: 0.25rem 0.5rem;
   border-radius: 3px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .movie__info span.green {
