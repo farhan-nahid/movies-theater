@@ -1,4 +1,8 @@
+/* google font */
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* reset default css */
 
 *,
 *::after,
@@ -19,6 +23,8 @@ body {
   background-color: var(--secondary-color);
 }
 
+/* header css */
+
 header {
   background-color: var(--primary-color);
 }
@@ -36,8 +42,8 @@ nav h3 {
   color: var(--white-color);
   letter-spacing: 3px;
   font-weight: 800;
+  cursor: pointer;
 }
-
 
 .search {
   background-color: transparent;
@@ -58,15 +64,18 @@ nav h3 {
   background-color: var(--secondary-color);
 }
 
+/* main body css */
+
 main {
   width: 1200px;
   margin: 0 auto;
 }
 
+/* movie css */
+
 #movie__container {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 50px;
   justify-content: center;
 }
 
@@ -95,6 +104,7 @@ main {
 .movie__info h3 {
   margin-top: 0;
   font-weight: 800;
+  padding-right: 10px;
 }
 
 .movie__info span {
@@ -130,6 +140,39 @@ main {
 
 .movie:hover .overview {
   transform: translateY(0);
+}
+
+/* category css */
+
+#category {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin: 40px auto;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.category__item {
+  margin: 7px;
+  border-radius: 30px;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 8px 20px;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: all 0.5s ease-in-out;
+}
+
+.category__item:hover {
+  border: 3px solid var(--primary-color);
+  background-color: var(--secondary-color);
+}
+
+#category h3 {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 @media only screen and (max-width: 1250px) {
