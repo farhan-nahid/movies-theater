@@ -169,10 +169,40 @@ main {
   background-color: var(--secondary-color);
 }
 
+.selected {
+  background-color: lawngreen;
+}
+
 #category h3 {
   cursor: pointer;
   font-size: 16px;
   font-weight: 600;
+}
+
+.pagination {
+  display: flex;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+  color: var(--white-color);
+}
+
+.disabled {
+  cursor: not-allowed;
+  color: gray;
+}
+#current {
+  margin: 10px 30px;
+  border: 2px solid orange;
+  border-radius: 50%;
+  padding: 3px 12px;
+  color: var(--white-color);
+  font-weight: 800;
+  cursor: pointer;
+}
+#next {
+  cursor: pointer;
+  color: var(--white-color);
 }
 
 @media only screen and (max-width: 1250px) {

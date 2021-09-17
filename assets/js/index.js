@@ -13,40 +13,86 @@ const form = document.getElementById("form");
 const search = document.getElementById("search");
 const moviesContainer = document.getElementById("movie__container");
 const category = document.getElementById("category");
+const preview = document.getElementById('preview')
+const current = document.getElementById('current')
+const next = document.getElementById('next')
 
+
+/* 
 const fetchGenres = async () => {
   category.textContent = "";
   const res = await fetch(filterURL);
   const data = await res.json();
-  showTheGenres(data.genres);
+  if (data.genres.length != 0) {
+    return showTheGenres(data.genres);
+  } else {
+    return alert("No Result");
+  }
 };
-
+ */
 const getMovies = async (url) => {
   const res = await fetch(url);
   const data = await res.json();
-  showMovies(data.results);
+  if (data.results.length != 0) {
+    return showMovies(data.results);
+  } else {
+    return alert("No Result");
+  }
 };
 
 // show the genres & movies
 
-fetchGenres();
+// fetchGenres();
 getMovies(apiURL);
 
 // filer movies
+/* 
 
+const selectID = [];
 const showTheGenres = (movies) => {
   movies.forEach((movie) => {
     const { id, name } = movie;
     const categoryItem = document.createElement("div");
     categoryItem.setAttribute("class", "category__item");
+    categoryItem.setAttribute("id", `${id}`);
     categoryItem.innerText = name;
     categoryItem.addEventListener("click", () => {
-      const url = apiURL + "&with_genres=" + id + ",";
-      console.log(url);
+      if (selectID.length === 0) {
+        selectID.push(id);
+      } else {
+        if (selectID.includes(id)) {
+          selectID.forEach((ID, index) => {
+            if (ID === id) {
+              selectID.splice(index, 1);
+            }
+          });
+        } else {
+          selectID.push(id);
+        }
+      }
+      getMovies(apiURL + "&with_genres=" + encodeURI(selectID.join(",")));
     });
     category.appendChild(categoryItem);
   });
 };
+
+
+const highlightSelection = () => {
+  const item = document.getElementsByClassName('category__item')
+  item.forEach(element => {
+    element.classList.remove('selected')
+  })
+  if (selectID.length != 0) {
+    selectID.forEach((id) => {
+      const selectedElement = document.getElementById(id);
+      console.log(selectedElement);
+      selectedElement.classList.add("selected");
+    });
+  }
+};
+
+
+*/
 
 // show movies function
 
@@ -57,10 +103,11 @@ const showMovies = (movies) => {
     const movieDiv = document.createElement("div");
     movieDiv.setAttribute("class", "movie");
     movieDiv.innerHTML = `
-          <img
-            src="${imgPATH + poster_path}"
-            alt="${title}"
-          />
+          <img src="${
+            poster_path
+              ? imgPATH + poster_path
+              : "http://via.placeholder.com/1080x1580"
+          }" alt="${title}" />
           <div class="movie__info">
             <h3>${title}</h3>
             <span class="${getClassByVote(vote_average)}">${vote_average}</span>
