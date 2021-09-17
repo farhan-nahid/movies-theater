@@ -8,7 +8,7 @@
 
 ##
 
-<img src="https://i.ibb.co/TPD8Z96/Movies-Theater.png" alt="Movies-Theater" border="0">
+<img src="https://i.ibb.co/M51twFf/Movies-Theater.png" alt="Movies-Theater" border="0">
 
 ---
 
