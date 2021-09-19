@@ -13,10 +13,9 @@ const form = document.getElementById("form");
 const search = document.getElementById("search");
 const moviesContainer = document.getElementById("movie__container");
 const category = document.getElementById("category");
-const preview = document.getElementById('preview')
-const current = document.getElementById('current')
-const next = document.getElementById('next')
-
+const preview = document.getElementById("preview");
+const current = document.getElementById("current");
+const next = document.getElementById("next");
 
 /* 
 const fetchGenres = async () => {
@@ -100,6 +99,9 @@ const showMovies = (movies) => {
   moviesContainer.textContent = "";
   movies.forEach((movie) => {
     const { title, poster_path, vote_average, overview } = movie;
+    const altText =
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, quas nobis reiciendis debitis eius in ab voluptatibus recusandae corporis porro exercitationem quia, sit est iure corrupti suscipit id?";
+
     const movieDiv = document.createElement("div");
     movieDiv.setAttribute("class", "movie");
     movieDiv.innerHTML = `
@@ -114,7 +116,7 @@ const showMovies = (movies) => {
           </div>
           <div class="overview">
             <h3>overview</h3>
-            <p>${overview.slice(0, 200)}</p>
+            <p>${overview ? overview.slice(0, 200) : altText}</p>
           </div>
         `;
     moviesContainer.appendChild(movieDiv);
